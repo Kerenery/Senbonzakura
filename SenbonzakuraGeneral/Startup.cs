@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Senbonzakura.Services;
 
 namespace SenbonzakuraGeneral
 {
@@ -24,6 +25,7 @@ namespace SenbonzakuraGeneral
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
+            services.AddSingleton<IGoodRepository, GoodsDBRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

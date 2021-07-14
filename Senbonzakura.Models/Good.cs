@@ -10,7 +10,7 @@ namespace Senbonzakura.Models
     {
         public string Color { get; set; }
         public int Id { get; set; }
-        public GoodsKinds? Type { get; set; }
-        public string PhotoPath { get; set; }
+        public GoodsKinds Type { get; set; }
+        public string? PhotoPath { get; set; }
     }
 }
