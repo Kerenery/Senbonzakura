@@ -6,4 +6,22 @@
 
 <h1>Goods</h1>
 
-<h2>@Model.Goods.Count()</h2>
+<div class="row">
+    @foreach (var item in Model.Goods)
+    {
+        var pathToPhoto = $"/images/{item.PhotoPath ?? "standard.jpg"}";
+        <div class="col-12 col-sm-6 col-lg-4">
+            <div class="card-deck">
+                <div class="card m-3">
+                    <div class="card-header text-center">
+                        <h3>@item.Type</h3>
+                    </div>
+
+                    <div>
+                        <img class="card-img-top" src = "@pathToPhoto" asp-append-version="true"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>  
