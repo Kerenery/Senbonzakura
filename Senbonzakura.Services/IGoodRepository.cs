@@ -11,5 +11,7 @@ namespace Senbonzakura.Services
     public interface IGoodRepository
     {
         IEnumerable<Good> GetAllFGoods();
+
+        Good GetGood(int id);
     }
 }

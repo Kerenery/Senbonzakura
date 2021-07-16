@@ -27,5 +27,10 @@ namespace Senbonzakura.Services
         {
             return allGoods;
         }
+
+        public Good GetGood(int id)
+        {
+            return allGoods.FirstOrDefault(x => x.Id == id);
+        }
     }
 }
