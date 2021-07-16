@@ -8,9 +8,11 @@ namespace Senbonzakura.Models
 {
     public enum GoodsKinds
     {
-        dress,
+        baka,
         skirt,
         pant,
-        sundress
+        sundress,
+        kasu,
+        manko
     }
 }

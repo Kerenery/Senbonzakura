@@ -18,8 +18,13 @@
                     </div>
 
                     <div>
-                        <img class="card-img-top" src = "@pathToPhoto" asp-append-version="true"/>
+                        <img class="card-img-top card-image" src = "@pathToPhoto" asp-append-version="true"/>
                     </div>
+                    
+                    <div class="card-footer text-center">
+                        <a asp-page="/Goods/information" asp-route-id ="@item.Id" class="btn btn-dark"> About </a>
+                    </div>
+
                 </div>
             </div>
         </div>
