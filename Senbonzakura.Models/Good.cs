@@ -12,5 +12,7 @@ namespace Senbonzakura.Models
         public int Id { get; set; }
         public GoodsKinds Type { get; set; }
         public string? PhotoPath { get; set; }
+
+        public string? VideoPath { get; set; }
     }
 }
