@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Senbonzakura.Models;
 using Senbonzakura.Services;
@@ -18,9 +19,16 @@ namespace SenbonzakuraGeneral.Pages.Goods
         public IEnumerable<Good> Goods { get; set; }
         public Good Good { get; private set; }
 
-        public void OnGet(int id)
+        public IActionResult OnGet(int id)
         {
             Good = database.GetGood(id);
+
+            if (Good == null)
+            {
+                return RedirectToPage("/NotFound");
+            }
+
+            return Page();
         }
     }
 }
