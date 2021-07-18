@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Routing;
 using Senbonzakura.Services;
 
 namespace SenbonzakuraGeneral
@@ -26,6 +27,13 @@ namespace SenbonzakuraGeneral
         {
             services.AddRazorPages();
             services.AddSingleton<IGoodRepository, GoodsDBRepository>();
+
+            services.Configure<RouteOptions>(options =>
+            {
+                options.LowercaseUrls = true;
+                options.LowercaseQueryStrings = true;
+                options.AppendTrailingSlash = true;
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
