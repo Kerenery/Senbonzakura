@@ -23,6 +23,8 @@
                     
                     <div class="card-footer text-center">
                         <a asp-page="/Goods/information" asp-route-id ="@item.Id" class="btn btn-dark"> About </a>
+                        <a asp-page="/Goods/Edit" asp-route-id ="@item.Id" class="btn btn-dark"> Edit </a>
+                        <a asp-page="/Goods/Delete" asp-route-id ="@item.Id" class="btn btn-warning"> Delete </a>
                     </div>
 
                 </div>
