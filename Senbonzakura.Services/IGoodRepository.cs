@@ -13,5 +13,7 @@ namespace Senbonzakura.Services
         IEnumerable<Good> GetAllFGoods();
 
         Good GetGood(int id);
+
+        Good UpDate(Good updGood);
     }
 }

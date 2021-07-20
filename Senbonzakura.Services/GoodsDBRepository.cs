@@ -10,11 +10,11 @@ namespace Senbonzakura.Services
     public class GoodsDBRepository : IGoodRepository
     {
 
-        private readonly IEnumerable<Good> allGoods;
+        private readonly IEnumerable<Good> _allGoods;
 
         public GoodsDBRepository()
         {
-            allGoods = new List<Good>()
+            _allGoods = new List<Good>()
             {
                 new Good() {Color = "black", Id = 1, PhotoPath = "smth.png", Type = GoodsKinds.baka},
                 new Good() {Color = "white", Id = 2, PhotoPath = "smth2.jpg", Type = GoodsKinds.manko},
@@ -25,12 +25,27 @@ namespace Senbonzakura.Services
 
         public IEnumerable<Good> GetAllFGoods()
         {
-            return allGoods;
+            return _allGoods;
         }
 
         public Good GetGood(int id)
         {
-            return allGoods.FirstOrDefault(x => x.Id == id);
+            return _allGoods.FirstOrDefault(x => x.Id == id);
+        }
+
+        public Good UpDate(Good updGood)
+        {
+            Good good = _allGoods.FirstOrDefault(x => x.Id == updGood.Id);
+
+            if (good != null)
+            {
+                good.Id = updGood.Id;
+                good.Type = updGood.Type;
+                good.Color = updGood.Color;
+                good.PhotoPath = updGood.PhotoPath;
+            }
+
+            return good;
         }
     }
 }
