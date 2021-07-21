@@ -18,6 +18,7 @@ namespace SenbonzakuraGeneral.Pages.Goods
 
         private string UploadPhoto()
         {
+
             string currentFileName = null;
 
             if (Photo != null)
@@ -74,6 +75,9 @@ namespace SenbonzakuraGeneral.Pages.Goods
             }
 
             Good = _database.UpDate(good);
+
+            TempData["NotyMess"] = $"Updated {Good.Type}";
+
             return RedirectToPage("/Goods/Goods");
         }
     }
