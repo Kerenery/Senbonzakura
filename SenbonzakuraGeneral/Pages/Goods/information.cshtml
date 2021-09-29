@@ -1,0 +1,31 @@
+﻿@page "{id}"
+
+@model SenbonzakuraGeneral.Pages.Goods.InformationModel 
+
+@{
+    ViewData["Title"] = "Information";
+    var PhotoPath = $"/images/{Model.Good.PhotoPath ?? "standard.jpg"}";
+    var VideoPath = $"/video/{Model.Good.VideoPath ?? "standard.mp4"}";
+}
+
+<div class="row justify-content-around">
+    <div class="col col-lg-8">
+        <div class="card">
+            <div class="card-header">
+                <h1>@Model.Good.Type</h1>
+            </div>
+            <div class="card-body text-left">
+                <div class="row">
+                    <div class="col col-lg-8">
+                        <h3 class="card-text">Niggадяй Id: @Model.Good.Id</h3><hr />
+                        <h3 class="card-text">Niggaдяй Color: @Model.Good.Color</h3><hr />
+                        <video controls="controls" class="text-center"  src="@VideoPath"></video><hr />
+                    </div>
+                    <div class="col col-lg-3">
+                        <img class="card-img-top" src="@PhotoPath" alt="sss" asp-append-version="true" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,39 @@
+﻿@page
+@model SenbonzakuraGeneral.Pages.Goods.GoodsModel
+@{
+    ViewData["Title"] = "Goods";
+}
+
+@if (TempData["NotyMess"] != null)
+{
+    <div class="alert-success text-center">@TempData["NotyMess"]</div>
+}
+
+<h1>Goods</h1>
+
+<div class="row">
+    @foreach (var item in Model.Goods)
+    {
+        var pathToPhoto = $"/images/{item.PhotoPath ?? "standard.jpg"}";
+        <div class="col-12 col-sm-6 col-lg-4">
+            <div class="card-deck">
+                <div class="card m-3">
+                    <div class="card-header text-center">
+                        <h3>@item.Type</h3>
+                    </div>
+
+                    <div>
+                        <img class="card-img-top card-image" src="@pathToPhoto" asp-append-version="true" />
+                    </div>
+
+                    <div class="card-footer text-center">
+                        <a asp-page="/Goods/information" asp-route-id="@item.Id" class="btn btn-dark"> About </a>
+                        <a asp-page="/Goods/Edit" asp-route-id="@item.Id" class="btn btn-dark"> Edit </a>
+                        <a asp-page="/Goods/Delete" asp-route-id="@item.Id" class="btn btn-warning"> Delete </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    }
+</div>  
